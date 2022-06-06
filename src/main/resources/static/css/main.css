@@ -1,10 +1,38 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
 /* 
     Created on : May 26, 2022, 11:00:58 p.m.
     Author     : Annie Kim
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+html {
+    background-color: #faf5ed;
+}
+
+body {
+    font-family: 'Abel', sans-serif; 
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.2em;
+    margin: 10px;
+}
+
+.navAlpha {
+    display: flex;
+    gap: 2vw;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    list-style-type: none;
+    justify-content: center; 
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
+}
