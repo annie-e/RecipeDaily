@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
 html {
-    background-color: #faf5ed;
+    background-color: #f5e8d4;
 }
 
 body {
@@ -14,9 +14,20 @@ body {
 }
 
 h1 {
+    display: block;
     text-align: center;
     font-size: 2.2em;
-    margin: 10px;
+    padding: 5px;
+    margin: 0 0 10px 0;
+    background-color: #faf5ed;
+}
+
+h2 {
+    display: block;
+    text-align: center;
+    font-size: 1.9em;
+    padding: 5px;
+    margin: 0 0 10px 0;
 }
 
 .navAlpha {
@@ -25,6 +36,7 @@ h1 {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    margin: 0px;
 }
 
 li {
@@ -33,6 +45,36 @@ li {
     font-size: 1.2em;
 }
 
-a {
+a:link {
     text-decoration: none;
+    color: #463b2b;
+
+}
+
+a:active, a:hover {
+    color: #c96521;
+}
+
+table {
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.buttons {
+    display: flex;
+    gap: 1vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons >*{
+    border-style: none; 
+    border-radius: 2px;
+    background-color: #bf9a64;
+    font-family: 'Abel', sans-serif; 
+}
+
+.buttons >*:hover {
+    background-color: #463b2b;
+    color: #faf5ed;
 }

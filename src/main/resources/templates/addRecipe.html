@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+    <head>
+        <title>Recipe Daily</title>
+        <link th:href="@{css/main.css}" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1>Recipe Daily</h1>
+        
+        <nav>
+            <ul class="navAlpha">
+                <li th:each="a: ${alphabets}">
+                    <a th:href="@{/{alpha}(alpha = ${a.name})}">
+                        <span th:text="${a.name}"></span>
+                    </a>                       
+                </li>
+            </ul>
+           <hr/>
+        </nav>
+        
+        <h2>Add New Recipe</h2>
+        
+        <form method="post" action="" th:action="@{/addNewRecipe}" th:object="${recipe}">
+            <table>
+                <tr>
+                    <td>Recipe Name</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name" th:field="*{recipeName}"/></td>
+                </tr>
+                <tr>
+                    <td>Ingredients</td>
+                </tr>
+                <tr>
+                    <td><textarea name="ingredients" th:field="*{ingredients}"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Instruction</td>
+                </tr>
+                <tr>
+                    <td><textarea name="instruction" th:field="*{ingredients}"></textarea></td>
+                </tr>
+
+            </table>
+            <br/>
+            <div class="buttons">
+                <input type="submit" value="Save" name="save" id="save"/>
+                <input type="submit" value="Cancel" name="cancel" id="cancel"/>
+            </div>
+        </form>
+    </body>
+</html>

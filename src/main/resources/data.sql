@@ -8,5 +8,5 @@
  * Created: May 26, 2022
  */
 
-INSERT INTO recipe (id, ingredients, instruction, recipe_name)
-VALUES (1, '1/2 apples, 2 cups butter', '1. Bake', 'Apple Pie');
+INSERT INTO recipe (ingredients, instruction, recipe_name)
+VALUES ('1/2 apples, 2 cups butter', '1. Bake', 'Apple Pie');

@@ -9,9 +9,11 @@ package com.annie.RecipeDaily.controllers;
 import com.annie.RecipeDaily.data.RecipeJdbc;
 import com.annie.RecipeDaily.data.RecipeRepo;
 import com.annie.RecipeDaily.models.Alphabet;
+import com.annie.RecipeDaily.models.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -42,5 +44,24 @@ public class RecipeController {
         model.addAttribute("alphabets", Alphabet.values());
         model.addAttribute("recipes", recipeJdbc.getRecipeByName(firstAlphabet));
         return "recipeByName";
+    }
+    
+    //Adding new recipes 
+    @RequestMapping("/addRecipe") 
+    public String addRecipe(Model model) {   
+        model.addAttribute("alphabets", Alphabet.values());
+        model.addAttribute("recipe", new Recipe());
+        return "addRecipe";
+    }
+    
+    @RequestMapping(value="/addNewRecipe", params="save") 
+    public String addNewRecipe(@ModelAttribute Recipe recipe) {
+        recipeRepo.save(recipe);
+        return "redirect:/";
+    }
+    
+    @RequestMapping(value="/addNewRecipe", params="cancel")
+    public String cancelAdd() {
+        return "redirect:/";
     }
 }
