@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+    <head>
+        <title>Edit Recipe</title>
+        <link th:href="@{css/main.css}" rel="stylesheet"/>
+    </head>
+    <body>
+        <h2>Edit Recipe</h2>
+        <form method="post" action="" th:action="@{/editRecipe}" th:object="${editRecipe}">
+            <table>
+                <tr>
+                    <td>Recipe Name: </td>
+                    <td><input type="text" name="name" th:field="*{recipeName}"/></td>
+                </tr>
+                <tr>
+                    <td>Ingredients: </td>
+                    <td><textarea name="ingredients" th:field="*{ingredients}"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Instruction: </td>
+                    <td><textarea name="instruction" th:field="*{instruction}"></textarea></td>
+                </tr>
+            </table>
+            <br/>
+            <div class="buttons">
+                <input type="submit" value="Save" name="save"/>
+                <input type="submit" value="Cancel" name="cancel"/>
+                <input type="hidden" th:field="*{id}" name="recipeId"/>
+            </div>
+        </form>
+    </body>
+</html>

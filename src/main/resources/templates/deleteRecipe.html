@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+    <head>
+        <title>Delete Recipe</title>
+        <link th:href="@{css/main.css}" rel="stylesheet"/>
+    </head>
+    <body>
+        <h2>Delete Recipe</h2>
+        <form method="get" action="" th:action="@{/deleteRecipe}" th:object="${deleteRecipe}">
+            <p> Are you sure you want to delete <span th:text="*{recipeName}"> </span>? </p>
+            <div class="buttons">
+                 <input type="submit" value="Delete" name="delete"/>
+                <input type="submit" value="Cancel" name="cancel"/>
+                <input type="hidden" name="recipeId" th:field="*{id}"/> 
+            </div>
+        </form>
+    </body>
+</html>

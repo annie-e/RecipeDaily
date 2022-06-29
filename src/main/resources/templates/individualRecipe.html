@@ -4,7 +4,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
     <head>
-        <title>Recipe Daily</title>
+        <title>Recipe Book</title>
         <link th:href="@{css/main.css}" rel="stylesheet"/>
     </head>
     <body>
@@ -20,21 +20,24 @@
             <hr/>
         </nav>
         
-        <table th:each="r: ${recipes}">
+        <table th:object="${recipe}">
             <tr>
-                <td th:text="${r.recipeName}"></td>
-                
-                <td>
-                    <form method="get" action="" th:action="@{/individualRecipe}">
+                <td th:text="*{recipeName}"></td>
+            </tr>
+            <tr>
+                <td th:text="*{ingredients}"></td>
+                <td th:text="*{instruction}"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <form method="get" action="" th:action="@{/changeRecipe}">
                         <div class="buttons">
-                            <input type="submit" name="indRecipe" value="View"/>
-                            <input type="hidden" th:value="${r.recipeName}" name="recipeName"/>
+                            <input type="submit" value="Edit" name="edit"/>
+                            <input type="submit" value="Delete" name="delete"/>
+                            <input type="hidden" name= "recipeId" th:value="*{id}"/>
                         </div>
                     </form>
                 </td>
-            </tr>
-            <tr>
-                <td th:text="${r.ingredients}"></td>
             </tr>
         </table>
         
